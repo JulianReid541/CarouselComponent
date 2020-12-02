@@ -39,3 +39,55 @@ const Content = styled.div`
   border-radius: 0 ${radius} ${radius} 0;
   background: white;
 `;
+
+const Slider = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: translateY(
+    -${p => 
+      p.activeIndex === 0 ? 0 : p.activeIndex * 100}%
+  );
+
+  transition: transform ease-out 0.45s;
+`;
+
+const Slide = styled.div`
+  height: 72px;
+`;
+
+const VerticalCarousel = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(activeIndex === slides.length -1) {
+        setActiveIndex(0);
+      }
+      else {
+        setActiveIndex(activeIndex + 1);
+      }
+    }, 3600);
+    return () => clearInterval(interval);
+  }, [setActiveIndex, activeIndex]);
+
+  return (
+    <Wrapper>
+      <Icon>@</Icon>
+      <Content>
+        <Slider activeIndex={activeIndex}>
+          {slides.map((s, i) => (
+            <Slide index={i}>
+              <div>{s.artist}</div>
+              <div>{s.song}</div>
+            </Slide>
+          ))}
+        </Slider>
+      </Content>
+    </Wrapper>
+  );
+};
+
+export default VerticalCarousel;
