@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import styled from "styled-components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const slides = [
+  {
+    artist: "Coldplay",
+    song: "Clocks"
+  },
+  {
+    artist: "Lifehouse",
+    song: "From Where You Are"
+  },
+];
 
-export default App;
+const wrapper = styled.div`
+  display: flex;
+  overflow: hidden;
+  width: 280px;
+`;
+
+const radius = "0.5rem";
+
+const Icon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 72px;
+  width: 72px;
+  height 72px;
+  font-size: 2rem;
+  border-radius: ${radius} 0 0 ${radius};
+  background: #7823fd;
+  color: white;
+`;
+
+const Content = styled.div`
+  position: relative;
+  flex: 1 0 auto;
+  border-radius: 0 ${radius} ${radius} 0;
+  background: white;
+`;
