@@ -3,16 +3,16 @@ import styled from "styled-components";
 
 const slides = [
   {
-    artist: "Coldplay",
-    song: "Clocks"
+    title: "Coldplay",
+    subtitle: "Clocks"
   },
   {
-    artist: "Lifehouse",
-    song: "From Where You Are"
+    title: "Lifehouse",
+    subtitle: "From Where You Are"
   },
 ];
 
-const wrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   overflow: hidden;
   width: 280px;
@@ -80,8 +80,8 @@ const VerticalCarousel = () => {
         <Slider activeIndex={activeIndex}>
           {slides.map((s, i) => (
             <Slide index={i}>
-              <div>{s.artist}</div>
-              <div>{s.song}</div>
+              <div>{s.title}</div>
+              <div>{s.subtitle}</div>
             </Slide>
           ))}
         </Slider>
