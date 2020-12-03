@@ -37,15 +37,16 @@ const Content = styled.div`
   position: relative;
   flex: 1 0 auto;
   border-radius: 0 ${radius} ${radius} 0;
-  background: white;
+  background: black;
 `;
 
 const Slider = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 20px;
   width: 100%;
   height: 100%;
+  color: white;
 
   transform: translateY(
     -${p => 
